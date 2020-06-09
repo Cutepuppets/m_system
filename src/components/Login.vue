@@ -57,7 +57,7 @@ export default {
     login(){
       this.$refs.loginFormRef.validate(async validate =>{
         if(!validate) return;
-        const {data:res} = await this.$http.post('login',qs.stringify(this.loginForm));
+        const {data:res} = await this.$http.post('user/login',qs.stringify(this.loginForm));
         if(res.code!=200) return this.$message.error("登陆失败！");
         this.$message.success("登陆成功！");
         //将登录token存放到session对象
